@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script
+    src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<script
+	src="resources\static\js\Category.js"></script>
+<style>
+
+.card{
+ margin-left: 450px;
+ height:450px;
+ width:400px;
+ max-content;}
+
+
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #BC8F8F;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #E0FFFF;
+  display: block;
+}
+div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 300px; /* Same as the width of the sidenav */
+}
+
+div.content {
+    margin-left: 300px;
+    padding: 1px 16px;
+    height: 100px;
+}
+
+
+@media screen and (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .sidebar a {
+        float: left;
+    }
+    div.content {
+        margin-left: 0;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
+}
+
+
+  
+  
+.parent {
+    width: 100%
+}
+
+
+.col1 {
+    width: 40%, float:left
+}
+
+
+.col2: {
+    width: 60%, float:left
+}
+.button {
+  float: left;
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+ align:center;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #000080;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+width: 50%;
+ margin: 10px 2px;
+ 
+}
+.button:hover {background-color: #3e8e41
+  }
+  .button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+  
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+  select {
+	width: 200px;
+	 margin: 50px;
+	height: 35px;
+}
+
+
+
+
+.zoom:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+}
+
+.flip-card {
+  background-color:#FFFFFF;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: FFFFFF;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #000080;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.container {
+  padding: 16px;
+  text-align: center;
+}
+
+/
+</style>
+</head>
+<body   background-color: #ccccc;>
+ 
+
+<div id="mySidenav" class="sidenav"  class="col-lg-2" style="background-color:#000080;">>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;X</a>
+				<img src="resources/static/image/shoppingking.jpg"></img>
+				<br></br>
+	<a href="#home">Home</a>
+   <a href="#category"  data-toggle="modal" data-target="#myModal">Category</a>
+  <a href="#product" data-toggle="modal" data-target="#myModal1">Product</a>
+  <a href="#cart">Cart</a>
+ <a href="#order">Order</a>
+</div>
+<div id="main">
+ 
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+</div>
+<div class="body">
+<div class="main" ng-app="myApp" ng-controller="myCtrl"  class="blur"  class="col-lg-10"  style=" background-color:FFFFFF;">
+<div class="row"  id=home>
+<h1>home</h1>
+					
+<div class="container">
+ 
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+         <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+               <li data-target="#myCarousel" data-slide-to="5"></li>
+                  <li data-target="#myCarousel" data-slide-to="6"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+      <div class="item active">
+        <img src="resources/static/image/hh1.png"  style="width:1000px;height:400px">
+        <div class="carousel-caption">
+          
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="resources/static/image/hh3.png"  style="width:1000px;height:400px">
+        <div class="carousel-caption">
+        
+        </div>
+      </div>
+    
+      <div class="item">
+        <img src="resources/static/image/hd5.png"  style="width:1000px;height:400px">
+        <div class="carousel-caption">
+          
+        </div>
+      </div>
+      
+  <div class="item">
+        <img src="resources/static/image/el10.png"  style="width:1000px;height:400px">
+        <div class="carousel-caption">
+          
+        </div>
+        
+      </div>
+  <div class="item">
+        <img src="resources/static/image/el12.png"  style="width:1000px;height:400px">
+        <div class="carousel-caption">
+          
+        </div>
+      </div>
+      
+      <div class="item">
+        <img src="resources/static/image/pp2.png"  style="width:1000px;height:400px">
+        <div class="carousel-caption">
+          
+        </div>
+      </div>
+      
+    <div class="item">
+        <img src="resources/static/image/pp3.png"  style="width:1000px;height:400px">
+        <div class="carousel-caption">
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+<br></br>
+	<div ng-repeat="product in allelectronics " class="col-lg-4" >
+	
+		
+	<div class="flip-card" style="margin:50px;">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+ 							
+		<center><h1 class="card-title" ><b>{{product.productname}}</b></h1></center>
+								<img ng-src="{{product.imgsrc}}" class="card-img-top" alt="..."  style="width:200px;height:200px;">
+	</div>
+						    <div class="flip-card-back">
+								<p class="card-text">
+								<h2 class="card-title"><b>{{product.productname}}</b></h2>
+							
+								<h3>Model:{{product.productmodel}}</h3>
+								<h3>Price:{{product.productprice}}</h3>
+								
+				</p>
+					
+								<a href="#!cart/{{product.itemid}}"  class="btn btn-primary" style="width:100px;height:70px;"><h3>Cart</h3></a>
+								<a href="#!buy/{{product.itemid}}" class="btn btn-primary" style="width:100px;height:70px;"><h3>Buy</h3></a>
+							</div>
+						</div>
+					</div>
+					
+					</div>				
+								
+</div>
+ <!-- end of home -->
+
+				
+				
+				
+<div class="container">
+
+  <!-- Trigger the modal with a button -->
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+         
+          <h4 class="modal-title">Category</h4>
+           <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        
+        
+        <div class="modal-body">
+       <h4><select data-ng-options="cat.categoryname for cat in myWelcome"
+						ng-change="category(selected.categoryid)" data-ng-model="selected" >
+						
+					</select></h4> 
+        </div>
+        <div class="modal-footer">
+          <a href=#category1 class="btn btn-default" >OK</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+	<div class="row"  id=category1>
+
+  <!-- Header -->
+		<header>
+			
+				<h2>
+					<b>{{selected.categoryname}}</b>
+				</h1>
+				
+				</header>
+
+				<div class="row">
+			<div ng-repeat="product1 in allelectronics1 " class="col-lg-4" >
+					
+						
+	<div class="flip-card" style="margin:50px;">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+ 							
+		<center><h1 class="card-title" ><b>{{product1.productname}}</b></h1></center>
+								<img ng-src="{{product1.imgsrc}}" class="card-img-top" alt="..."  style="width:200px;height:200px;">
+	</div>
+						    <div class="flip-card-back">
+								<p class="card-text">
+								<h2 class="card-title"><b>{{product.productname}}</b></h2>
+							
+								<h3>Model:{{product1.productmodel}}</h3>
+								<h3>Price:{{product1.productprice}}</h3>
+						
+				</p>
+				<br></br>
+								<a href="#!cart/{{product1.itemid}}"  class="btn btn-primary" style="width:100px;height:70px;"><h3>Cart</h3></a>
+								<a href="#!buy/{{product1.itemid}}" class="btn btn-primary" style="width:100px;height:70px;"><h3>Buy</h3></a>
+							</div>
+						</div>
+					</div>
+					
+				
+				</div>
+	
+					</div>
+					
+			</div>
+
+			<div class="container">
+
+  <!-- Trigger the modal with a button -->
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+         
+          <h4 class="modal-title">Product</h4>
+           <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        
+        
+        <div class="modal-body">
+       <h4><select data-ng-options="pro.productname for pro in myWelcome1"
+						ng-change="product(selected2.productid)" data-ng-model="selected2">
+					</select></h4> 
+        </div>
+        <div class="modal-footer">
+          <a href=#product1 class="btn btn-default" >OK</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+			
+			
+			
+			
+		<!-- for product -->
+		<div class="row"  id=product1>
+  <!-- Header -->
+		<header>
+			<br></br>
+				<h1 >
+					<b>{{selected2.productname}}</b>
+				</h1>
+				
+				</header>
+			
+				<div class="row">
+				<div ng-repeat="product2 in myWelcome2 " class="col-lg-3" >
+					
+						
+											
+	<div class="flip-card" style="margin:50px;">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+ 							
+		<center><h1 class="card-title" ><b>{{product2.productname}}</b></h1></center>
+								<img ng-src="{{product2.imgsrc}}" class="card-img-top" alt="..."  style="width:200px;height:200px;">
+	</div>
+						    <div class="flip-card-back">
+								<p class="card-text">
+								<h2 class="card-title"><b>{{product.productname}}</b></h2>
+							
+								<h3>Model:{{product2.productmodel}}</h3>
+								<h3>Price:{{product2.productprice}}</h3>
+							
+				</p>
+				<br></br>
+								<a href="#!cart/{{product2.itemid}}"  class="btn btn-primary" style="width:100px;height:70px;"><h3>Cart</h3></a>
+								<a href="#!buy/{{product2.itemid}}" class="btn btn-primary" style="width:100px;height:70px;"><h3>Buy</h3></a>
+							</div>
+						</div>
+					</div>
+					
+					
+					
+					
+						
+					
+					
+				</div>
+			
+				</div>
+
+			
+				</div>
+			<!-- cart -->
+				<div class="row" id="cart" >
+	<header>
+			<br></br>
+				
+				<div button-align="center">
+ 
+ <button ng-click="cartfunction()" class="button" >view all cart</button>
+</div>
+				</header>
+			</div>
+			<div class="row" id=cart>
+				
+				<div ng-repeat="product2 in cartgetall " class="col-lg-4" >
+					
+						
+						<div class="card" 
+							style="box-shadow: 2px 2px #C0C0C0; margin:50px; text-align:center">
+
+							<div class="card-body">
+						<h2 class="card-title"><b>{{product2.productname}}</b></h2>
+						<div  class="zoom">
+								<img ng-src="{{product2.imgsrc}}" class="card-img-top" alt="..." style="width:250px;height:230px;">
+								
+</div>
+								
+								<p class="card-text">
+									<h3>Model:{{product2.productmodel}}</h3>
+								<h3>Price:{{product2.productprice}}</h3>
+								</p>
+									<a href="#!buy/{{product2.itemid}}" class="btn btn-primary" >buy</a>
+									<a href="#!cancel/{{product2.itemid}}/{{product2.customerid}}" class="btn btn-primary" >cancel</a>
+							</div>
+						</div>
+					
+					
+				</div>
+				</div>
+				
+				
+						
+			<!-- order -->
+				<div class="row" id="order" >
+	<header>
+			<br></br>
+				
+				
+ 				<div class="wrapper">
+ 
+ <button ng-click="orderfunction()" class="button button3" >view all order</button>
+</div>
+	
+				</header>
+			</div>
+			<div class="row" id=order>
+				
+				<div ng-repeat="product2 in ordergetall " class="col-lg-3" >
+					
+						
+						<div class="card"
+							style="box-shadow: 2px 2px #C0C0C0;">
+
+							<div class="card-body">
+								<h2 class="card-title"><b>{{product2.productname}}</b></h2>
+								<img ng-src="{{product2.imgsrc}}" class="card-img-top" alt="..." style="width:250px;height:230px;">
+
+							
+								<p class="card-text">
+									<h3>Model:{{product2.productmodel}}</h3>
+								<h3>Price:{{product2.productprice}}</h3>
+								</p>
+								
+										<a href="#!cancelorder/{{product2.itemid}}/{{product2.customerid}}" class="btn btn-primary" >cancel</a>
+							</div>
+						</div>
+					
+					
+				</div>
+				</div>
+				
+	
+				
+				
+				
+				
+</div>
+</div>
+		
+		
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+
+
+
+
+</script>
+   	
+			
+  
+
+</body>
+</html> 

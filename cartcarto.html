@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+	<div ng-repeat="product2 in cartgetall " class="col-lg-4">
+
+
+		<div class="card"
+		style=" box-shadow: 10px 10px 5px #aaaaaa;margin:30px; width:300px; border: 1px solid #BFBFBF;">
+			
+
+			<center>
+				<h2 class="card-title">
+					<b>{{product2.productname}}</b>
+				</h2>
+			</center>
+			<center>
+				<img ng-src="{{product2.imgsrc}}" class="card-img-top" alt="..."
+					style="width: 200px; height: 200px;">
+			</center>
+
+
+
+			<center>
+				<h3>Model:{{product2.productmodel}}</h3>
+			</center>
+			<center>
+				<h3>Price:{{product2.productprice}}</h3>
+			</center>
+
+			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <a
+				href="#!buyproducts/{{product2.itemid}}" class="btn btn-primary"
+				style="width: 70px; height: 50px;"><h4>Buy</h4></a>
+			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#!cancel/{{product2.itemid}}"
+				class="btn btn-primary" style="width: 80px; height: 50px;"><h4>cancel</h4></a>
+			<br></br>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

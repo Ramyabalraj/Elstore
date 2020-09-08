@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+    src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    
+    <style>
+
+ 
+ 
+.flip-card {
+  background-color:#FFFFFF;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: FFFFFF;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #000080;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<div ng-repeat="product in categoryimg " class="col-lg-4" >
+	
+		
+	<div class="flip-card" style="margin:10px;">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+ 							
+		<center>
+		<h1 class="card-title" ><b>{{product.productname}}</b></h1>
+		</center>
+					<img ng-src="{{product.imgsrc}}" class="card-img-top" alt="..."  style="width:200px;height:200px;">
+					</div>
+						    <div class="flip-card-back">
+								
+								<h3 class="card-title"><b>{{product.productname}}</b></h3>
+							
+								<h3>Model:{{product.productmodel}}</h3>
+									
+								<h3>Price:{{product.productprice}}</h3>
+									
+								<br></br>
+					
+								<a href="#!cart/{{product.itemid}}"  class="btn btn-primary" style="width:80px;height:60px;"><h3>Cart</h3></a>	&nbsp&nbsp&nbsp&nbsp
+								<a href="#!buyproducts/{{product.itemid}}" class="btn btn-primary" style="width:80px;height:60px;"><h3>Buy</h3></a>
+							</div>
+						</div>
+					</div>
+</div>			
+
+</body>
+</html>

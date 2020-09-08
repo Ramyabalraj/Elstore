@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Raleway">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script
+	src="D:\nivetha\elstore\JCOETElectronicstore\src\main\webapp\resources\static\js\Category.js"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+div.content {
+	margin-left: 200px;
+	padding: 1px 16px;
+	height: 1000px;
+}
+
+@media screen and (max-width: 700px) {
+	.sidebar {
+		width: 100%;
+		height: auto;
+		position: relative;
+	}
+	.sidebar a {
+		float: left;
+	}
+	div.content {
+		margin-left: 0;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.sidebar a {
+		text-align: center;
+		float: none;
+	}
+}
+
+.parent {
+	width: 100%
+}
+
+.col1 {
+	width: 60%, float:left
+}
+
+.col2: {
+	width: 60%, float:left
+}
+
+select {
+	width: 300px;
+	margin: 100px;
+	height: 50px;
+}
+
+select:focus {
+	min-width: 300px;
+	width: auto;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+	font-family: "Raleway", sans-serif
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+<body ng-app="myApp" ng-controller="myCtrl"
+	class="w3-light-grey w3-content" style="max-width: 1600px">
+
+	<nav class="w3-sidebar w3-collapse w3-white w3-animate-left"
+		style="z-index: 3; width: 300px;" id="mySidebar">
+		<br>
+		<div class="w3-container">
+			<a href="#" onclick="w3_close()"
+				class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey"
+				title="close menu"> <i class="fa fa-remove"></i>
+			</a> <img
+				src="D:\nivetha\elstore\JCOETElectronicstore\src\main\webapp\resources\static\image\shoppingking.jpg"
+				style="width: 45%;" class="w3-round"><br>
+			<br>
+			<h4>
+				<b>CATEGORY</b>
+			</h4>
+
+		</div>
+		<div class="w3-bar-block">
+			<a href="#portfolio" onclick="w3_close()"
+				class="w3-bar-item w3-button w3-padding w3-text-teal">CATEGORY</a> <a
+				href="#about" onclick="w3_close()"
+				class="w3-bar-item w3-button w3-padding">PRODUCT</a> <a
+				href="#contact" onclick="w3_close()"
+				class="w3-bar-item w3-button w3-padding">ITEMS</a>
+		</div>
+
+	</nav>
+
+	<!-- Overlay effect when opening sidebar on small screens -->
+	<div class="w3-overlay w3-hide-large w3-animate-opacity"
+		onclick="w3_close()" style="cursor: pointer" title="close side menu"
+		id="myOverlay"></div>
+
+	<!-- !PAGE CONTENT! -->
+	<div class="w3-main" style="margin-left: 300px">
+
+		<!-- Header -->
+		<header id="portfolio">
+			<a href="#"><img src="/w3images/avatar_g2.jpg"
+				style="width: 65px;"
+				class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+			<span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey"
+				onclick="w3_open()"><i class="fa fa-bars"></i></span>
+			<div class="col-lg-10">
+				<h1>
+					<b>CATEGORY</b>
+				</h1>
+				<h2>
+					<select data-ng-options="cat.categoryname for cat in myWelcome"
+						ng-change="category(selected.categoryid)" data-ng-model="selected">
+					</select>
+				</h2>
+				<div ng-repeat="product in allelectronics " class="col-lg-3">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="card"
+								style="width: 270px; margin: 10px; box-shadow: 2px 2px #F3F3F3;">
+
+								<div class="card-body">
+									<img ng-src="{{product.imgsrc}}" class="card-img-top" alt="...">
+
+									<h5 class="card-title">{{product.productname}}</h5>
+									<p class="card-text">
+									<h2>{{product.productprice}}</h2>
+									</p>
+									<a href="#" class="btn btn-primary">Go somewhere</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+
+
+
+
+
+
+
+		</header>
+
+
+
+		<!-- Header -->
+		<header id="about">
+
+			<div class="w3-container">
+				<h1>
+					<b>{{selected.categoryname}}</b>
+				</h1>
+				<h2>
+					<select data-ng-options="pro.productname for pro in myWelcome1"
+						ng-change="product(selected2.productid)" data-ng-model="selected2">
+					</select>
+				</h2>
+
+				<div ng-repeat="product1 in allelectronics1 " class="col-lg-3">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="card"
+								style="width: 270px; margin: 10px; box-shadow: 2px 2px #F3F3F3;">
+
+								<div class="card-body">
+									<img ng-src="{{product1.imgsrc}}" class="card-img-top"
+										alt="...">
+
+									<h5 class="card-title">{{product1.productname}}</h5>
+									<p class="card-text">
+									<h2>{{product1.productprice}}</h2>
+									</p>
+									<a href="#" class="btn btn-primary">Go somewhere</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</header>
+
+
+
+		<!-- Header -->
+		<header id="contact">
+
+			<div class="w3-container">
+				<h1>
+					<b>{{selected2.productname}}</b>
+				</h1>
+				<h2>
+					<select data-ng-options="pro1.productmodel for pro1 in myWelcome2"
+						ng-change="product(selected3.productid)" data-ng-model="selected3">
+					</select>
+				</h2>
+
+				<div ng-repeat="product2 in myWelcome2 " class="col-lg-3">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="card"
+								style="width: 270px; margin: 10px; box-shadow: 2px 2px #F3F3F3;">
+
+								<div class="card-body">
+									<img ng-src="{{product2.imgsrc}}" class="card-img-top"
+										alt="...">
+
+									<h5 class="card-title">{{product2.productname}}</h5>
+									<p class="card-text">
+									<h2>
+										{{product2.productprice}}
+										<p class="card-text">
+										<h2>
+											{{product2.productmodel}}
+											</p>
+										</h2>
+										</p>
+										<a href="#" class="btn btn-primary">Go somewhere</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</header>
+
+
+
+
+
+
+
+
+
+
+		<div class="w3-black w3-center w3-padding-24">
+			Powered by <a href="https://www.w3schools.com/w3css/default.asp"
+				title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a>
+		</div>
+
+		<!-- End page content -->
+	</div>
+
+	<script>
+		// Script to open and close sidebar
+		function w3_open() {
+			document.getElementById("mySidebar").style.display = "block";
+			document.getElementById("myOverlay").style.display = "block";
+		}
+
+		function w3_close() {
+			document.getElementById("mySidebar").style.display = "none";
+			document.getElementById("myOverlay").style.display = "none";
+		}
+	</script>
+
+</body>
+</html>

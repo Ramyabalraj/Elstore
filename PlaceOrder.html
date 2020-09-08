@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+				
+				<div ng-repeat="product2 in order " class="col-lg-3"  >
+				
+								
+								<center><img ng-src="{{product2.imgsrc}}" class="card-img-top" alt="..." style="width:250px;height:230px;"></center> <br></br>
+                                  <center><h2 ><b>{{product2.productname}}</b></h2></center>
+									  <center><h2>Model:{{product2.productmodel}}</h2></center>
+								  <center><h2>Price:{{product2.productprice}}</h2></center>
+								 
+								  <div ng-repeat="product in cus " class="col-lg-3"  >
+								  <center><h2>Customerid:{{product.customerid}}</h2></center>
+								  <center><h2>address:{{product.address}}</h2></center>
+								    <center><h2>phoneno:{{product.phoneno}}</h2></center>
+						  <center><a href="#!buy/{{product2.itemid}}" class="btn btn-primary" style="width:200px;height:70px;"><h2>place order</h2></a></center>
+						   	</div>
+							</div>
+						
+					
+					
+				
+			
+	
+				
+
+
+
+</body>
+</html>

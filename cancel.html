@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script
+    src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<script
+	src="resources\static\js\Category.js"></script>
+	</head>
+	<body>
+			<div ng-app="myApp" ng-controller="myCtrl">
+				<div class="row" >
+	<header>
+			<br></br>
+				
+				<div button-align="center">
+ 
+ <button ng-click="cartfunction()" class="button" >view all cart</button>
+</div>
+				</header>
+			</div>
+			<div class="row" id=cart>
+				
+				<div ng-repeat="product2 in cartgetall " class="col-lg-4" >
+					
+						
+						<div class="card" 
+							style="box-shadow: 2px 2px #C0C0C0; margin:50px; text-align:center">
+
+							<div class="card-body">
+						<h2 class="card-title"><b>{{product2.productname}}</b></h2>
+						<div  class="zoom">
+								<img ng-src="{{product2.imgsrc}}" class="card-img-top" alt="..." style="width:250px;height:230px;">
+								
+</div>
+								
+								<p class="card-text">
+									<h3>Model:{{product2.productmodel}}</h3>
+								<h3>Price:{{product2.productprice}}</h3>
+								</p>
+									
+							</div>
+						</div>
+					
+					</div>
+				</div>
+				</div>
+	</body>
+	</html>
